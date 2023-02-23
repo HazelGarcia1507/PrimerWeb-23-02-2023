@@ -1,0 +1,167 @@
+/* Cuando quiero que todo lo que anote afecte a mi pagina completa se empieza con asterisco*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* se utiliza font-family para seleccionar el tipo de letra questara en mi pagina*/
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Cuando pongo comentarios necesito ponerlos asi: diagonal asterisco comentario asterisco diagonal*/
+
+/* A partir de aca tengo estilos generales que afectan a todas las Image-container */
+
+/* ahora toca la edicion del logo papos en el header */
+/*para seleccionar la clase se debe añadir un punto antes de Image-conteiner, para hacer que sea flexible el tamaño de edicion de la imagen usar: display:flex*/
+.Image-container {
+    display: flex;
+}
+
+/*Seleccionando ahora dentro de la clase Image-container una imagen en particular */
+
+.Image-container img {
+    width: 100%;
+}
+
+/* Editando ahora los estilos del header */
+
+header {
+    background: #527bdc;
+    padding: 10px 10px;
+    /* el primer numero representa los pixeles de marco arriba y abajo y el segundo numero con px indica los pixeles de marco en izquierda y derecha */   
+}
+
+/* Seleccionando al conteiner del Logo papos usando # */
+/* Si tengo dos palabras necesito hacerlas una: LogoPapos o Logo_Papos*/
+#Logo_Papos{
+    width: 50px;
+}
+/* Del 100% del contenedor padre toma un ancho de 50px, entonces la imagen mide 50px del 100% de su contenedor padre*/
+/* Pasamos ahora a hacer la imagen en forma e circulo, seleccionando la img dentro del container Logo y poniendo que tenga un radio 100% circular nos queda:*/
+/* Para que el circulo donde se encuentra la imagen tenga anchura uso "border" y para que sea blanco uso  despues del estilo de linea #blue*/
+/* Para linea solida en el circulo usar "solid" para linea punteada "dotted" */
+
+#Logo_Papos img {
+    border-radius: 100%;
+    border: 2px dotted #fff;
+}
+
+/* Los estilos del Hero empiezan aqui, mi imagen de fondo (primer foto familiar), con mi foto de perfil y las letras*/
+/*Primero se selecciona la seccion central "Hero" junto con el otro ID de la foto que me interesa tener de fondo*/
+/* NOTA ATAJO: Alt+Z para ajuste automatico de linea*/
+/*display: inline-block; para modificar imagen con libertad */
+/* Para que la imagen mida el 100% de ancho de mi navegador en Hero, agrego width*/
+
+/*salte a la linea 66 del display cuando cree mi archivo, pero para que mi info y foto queden en la seccion del Hero, añado lo siguiente: */
+/*Va a iniciar de la seecion del contenedor del Hero porque position absolute de la linea 75 busca donde esta el position relative de la linea 63*/
+
+#Hero {
+    position: relative;
+}
+
+#Hero #Espacio {
+    display: inline-block;
+    width: 100%;
+}
+
+/* Para poner contenido encima de mi primer foto familiar (realmente de toda mi pagina pero encontrandose dentro de la seccion hero), accedo a la siccion ID Hero (usango #) y para la clase  (usando . antes del nombre)*/
+/*Para que todo lo que esta de fondo y letras empiece desde arriba a la izquierda es que uso position absolute, para que empiece del primer pixel de arriba mi info uso top 0 y para uso left 0 (me pone mi texto hasta arriba)*/
+
+#Hero .Informacion_contenedor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    display: flex;
+    width: 100%;
+    color: #fff;
+    padding: 10px 50px;
+}
+
+/*regreso a linea 59 para que mi info y foto esten desde mi seccion hero*/
+
+/* continuando con mi codigo, ahora quiero que mi imagen mia (la foto familiar), se vea chiquita usando width*/
+
+#Hero .Informacion_contenedor #Gatito {
+    width: 200px;
+}
+
+#Hero .Informacion_contenedor #Gatito img {
+    border-radius: 100%;
+    border: 5px solid rgb(251, 249, 249)
+}
+
+/* Para separar la imagen de arriba del lado izquierdo a ponerla centrada, asi que se editara la continuacion de la linea 77 añadiendo 'width' en la linea 78, 'color' para cambiar el color del texto o la letra, 'padding' para la separacion arriba-abajo e izq-der*/
+/* Para que ahora la imagen este del lado izquierdo y el texto a la derecha en la linea 78 anoto 'display: flex' */
+/* OJO: Para que tome la informacion descriptiva a la informacion que hay dentro del contenedor (que tiene la info y la descripcion, se tiene que poner diferente nombre: Info-contenedor es diferente de Informacion (la que describe mi contenedor)*/
+
+/* Regresando a la linea 103, para separar mi foto de mi texto en mi hero, escribo que estando en la informacion del contenedor (texto e imagenes que contiene) en la parte del texto (llamada informacion) le pongo que tenga un margen e separacion entre ellos de ene px 'margin-left 40 px' y que tenga mas fuerza (negritas) 'font-weight: bold' (si pongo un numero en lugar de bold, solo hace las primeras lineas... si uso bold, todo el texto se pone en negritas) */
+
+#Hero .Informacion_contenedor .Informacion {
+    margin-left: 40px;
+    font-weight: bold;
+    width: calc(100% -200px);
+}
+
+/* Para ponerle al span un color diferente (@familiaHadidGarcia) uso 'color' y para separar la info a partir del span uso margin-bottom (margen de la parte de abajo) sin embargo como depende del display (no explicado) necesitamos indicarlo porque si no, no lo separa, por lo cual agregamos 'display: inline-block' (me permite guardar con el mismo formato los elementos bloque y en linea)*/
+
+#Hero .Informacion_contenedor .Informacion span {
+    display: inline-block;
+    color: rgb(154, 203, 63);
+    margin-bottom: 30px;
+}
+
+/* Para tener ahora mi info centrada y en el centro, usamos un top y un left por lo que abra que modificar el top al 50% de la linea 76 en lugar del 0 que teniamos, pero como esto solo es el 50% de toda la pagina y no del hero en las mismas propiedades de la pagina,doy click  aun lado del 50% y añado 'transform: translateY(-50%),' ese menos 50% es para trasladarlos a menos 50% de si mismo y la Y es poque quiero que se mueva sobre ese eje. Como no los guarda las propiedades en pagina, se añaden a la nueva linea 77 */
+
+/* Para los estilos del main(dominios como face, insta) empezamos escribiendo que trabajaremos en el dominio 'main' y agregaremos un margen (padding) de 100 px para que el texto escrito se separe del hero*/
+/* Se añade en html en la parte de head (abajo de meta), algo llamado viewport (<meta name="viewport" content="width=device-width, initial-scale=1.0" />) para que me permita cambiar la vista de compu a dispositivos moviles*/
+
+main {
+    padding: 100px;
+}
+
+/* El background es para ver el fondo en otro color. Usamos el displayflex para que los iconos esten uno aun lado del otro. USamos justify content center para que mis redes salgan centradas. Para despegar las redes sociales del texto usamos margintop10px.*/
+
+/* Como cada elemento ul tiene puntito porque es una lista, necesito quitarselos usando list style none */
+
+main .Social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    list-style: none;
+}
+
+/* Para centrar el icon en su respectiva caja, usamos nuvamente flex para que nos deje moverla, justify para centrarla, align para alinear, pading para que tenga un margen dentro de su caja (hara mas grande o mas chica la imagens egun se necesite), un margin left para despegar unas cajas entre otras (espacio entre ellas), para hacer la imagen de background redondita, ponemos un radius. Para ajustar que los enlaces ocupen todo el tamaño de la caja (elementos li) tanto de ancho (width) como alto (heigh) lo especificamos; y como se volvieron a pegar */
+
+/* Para que no se me junten entre si, necesito poner un margen entre cada elemento li, en lugar de a cada icono por separado*/
+
+main .Social-icons li{
+    margin-left: 40px;
+}
+
+main .Social-icons .Social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+main .Social-icons #Instagram {
+    background: rgb(219, 137, 150);
+}
+
+main .Social-icons #Facebook {
+    background: #527bdc;
+}
+
+/* dando los detalles finales: 
+ -Para que mi foto de perfil no se alargue cuando pongo la vista de telefono, nos vamos a la linea 89 donde nos hace referencia a un width PERO no se lo pusimos al texto de la linea 104 (debe de medir el total del contenedor menos los pixeles de la linea 89), asi que usamos calc (para que calcule el ancho)
+ NOTA: Falta meterle un responsive para que cuando lo haga mas pequeñO no todo se empiece a alargar
+ -Para que funcionen los hipervindulos a nuestras redes sociales se cambia el # por el url de nuestra red social -Para que el hipervindulo funcione en una nueva pagina, se le pone despues de la url "target=_blank', y para no tener problemas con la seguridad del sitio se agrega inmediatamente despues [rel="noopener noreferrer"]*/
